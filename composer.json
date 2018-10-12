@@ -1,0 +1,30 @@
+{
+    "name": "mugennsou\/laravel-messenger",
+    "description": "A Overtrue\/EasySms bridge for Laravel 5.",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "aki",
+            "email": "mj501738931@126.com"
+        }
+    ],
+    "require": {
+        "illuminate/support": "5.5.*|5.6.*|5.7.*",
+        "overtrue/easy-sms": "^1.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Mugennsou\\LaravelMessenger\\": "src"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Mugennsou\\LaravelMessenger\\MessengerServiceProvider"
+            ],
+            "facades": [
+                "Mugennsou\\LaravelMessenger\\Facades\\Messenger"
+            ]
+        }
+    }
+}
