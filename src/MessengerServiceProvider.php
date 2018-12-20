@@ -17,9 +17,11 @@ class MessengerServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->publishes([
-            __DIR__ . '/../config/messenger.php' => config_path('messenger.php'),
-        ]);
+        if ($this->app->runningInConsole()) {
+            $this->publishes([
+                __DIR__ . '/../config/messenger.php' => config_path('messenger.php'),
+            ]);
+        }
     }
 
     /**

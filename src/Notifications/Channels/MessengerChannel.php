@@ -27,11 +27,11 @@ class MessengerChannel
      */
     public function send($notifiable, AbstractMessageNotification $notification)
     {
-        $message = $notification->toMessenger($notifiable);
-
-        if (!$phone = $notifiable->routeNotificationFor('messenger', $notification)) {
+        if (empty($phone = $notifiable->routeNotificationFor('messenger', $notification))) {
             return;
         }
+
+        $message = $notification->toMessenger($notifiable);
 
         try {
             $this->messenger->send($phone, $message);
